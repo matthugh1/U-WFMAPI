@@ -28,6 +28,19 @@
             "required": false,
             "schema": {
               "$ref": "#/definitions/RealTimeData"
+            },
+            "x-examples": {}
+          },
+          {
+            "name": "realTimeData",
+            "in": "body",
+            "description": "Data to import",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/RealTimeData"
+            },
+            "x-examples": {
+              "example-1": {}
             }
           }
         ],
