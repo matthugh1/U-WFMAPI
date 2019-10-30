@@ -97,5 +97,8 @@
     "https"
   ],
   "host": "realtimeapi.u-wfm.com",
-  "basePath": "api"
+  "basePath": "api",
+  "produces": [
+    "application/json"
+  ]
 }
