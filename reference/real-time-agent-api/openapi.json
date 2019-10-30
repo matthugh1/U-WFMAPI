@@ -1,1 +1,101 @@
-{"swagger":"2.0","info":{"version":"v1","title":"Real Time Agent API"},"paths":{"/api/RealTimeImport":{"post":{"tags":["RealTimeImport"],"summary":"Import real time data","operationId":"PostAsync","consumes":["application/json-patch+json","application/json","text/json","application/*+json"],"produces":[],"parameters":[{"name":"realTimeData","in":"body","description":"Data to import","required":false,"schema":{"$ref":"#/definitions/RealTimeData"}}],"responses":{"200":{"description":"Successfully imported"},"500":{"description":"Data import failed"}}}}},"definitions":{"RealTimeData":{"description":"","required":["events"],"type":"object","properties":{"events":{"description":"List of agent events","uniqueItems":false,"type":"array","items":{"$ref":"#/definitions/RealTimeEvent"}},"sourceName":{"description":"Optional source name if multiple sources are required","type":"string"}}},"RealTimeEvent":{"description":"Agent Event","required":["agentId","eventCode","dateTime"],"type":"object","properties":{"agentId":{"description":"Unique agent identifier","type":"string"},"eventCode":{"description":"Code to identity events. (E.g. Available, Busy, LogOn, LogOff)","type":"string"},"reason":{"description":"Secondary reason for event code (E.g. Lunch, Break, Meeting","type":"string"},"dateTime":{"format":"date-time","description":"Date and time that the event occured","type":"string"}}}}}
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Real Time Agent API",
+    "description": ""
+  },
+  "paths": {
+    "/api/RealTimeImport": {
+      "post": {
+        "tags": [
+          "RealTimeImport"
+        ],
+        "summary": "Import real time data",
+        "operationId": "PostAsync",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "realTimeData",
+            "in": "body",
+            "description": "Data to import",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/RealTimeData"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully imported"
+          },
+          "500": {
+            "description": "Data import failed"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "RealTimeData": {
+      "description": "",
+      "required": [
+        "events"
+      ],
+      "type": "object",
+      "properties": {
+        "events": {
+          "description": "List of agent events",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RealTimeEvent"
+          }
+        },
+        "sourceName": {
+          "description": "Optional source name if multiple sources are required",
+          "type": "string"
+        }
+      }
+    },
+    "RealTimeEvent": {
+      "description": "Agent Event",
+      "required": [
+        "agentId",
+        "eventCode",
+        "dateTime"
+      ],
+      "type": "object",
+      "properties": {
+        "agentId": {
+          "description": "Unique agent identifier",
+          "type": "string"
+        },
+        "eventCode": {
+          "description": "Code to identity events. (E.g. Available, Busy, LogOn, LogOff)",
+          "type": "string"
+        },
+        "reason": {
+          "description": "Secondary reason for event code (E.g. Lunch, Break, Meeting",
+          "type": "string"
+        },
+        "dateTime": {
+          "format": "date-time",
+          "description": "Date and time that the event occured",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "realtimeapi.u-wfm.com",
+  "basePath": "api"
+}
